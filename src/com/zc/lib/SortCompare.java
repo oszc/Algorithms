@@ -2,6 +2,7 @@ package com.zc.lib;
 
 import com.zc.charapter_two.Insertion;
 import com.zc.charapter_two.Selection;
+import com.zc.charapter_two.Shell;
 import edu.princeton.cs.introcs.StdOut;
 import edu.princeton.cs.introcs.StdRandom;
 import edu.princeton.cs.introcs.Stopwatch;
@@ -18,6 +19,7 @@ public class SortCompare {
 
         if(alg.equals("Insertion")) Insertion.sort(a);
         if(alg.equals("Selection")) Selection.sort(a);
+        if(alg.equals("Shell")) Shell.sort(a);
      //   if(alg.equals("Shell"))
         return timer.elapsedTime();
     }
@@ -44,9 +46,13 @@ public class SortCompare {
         int T = Integer.parseInt(args[3]);
 
         double t1 = timeRandomInput(arg1, N, T);
-        double t2 = timeRandomInput(arg2 ,N,T);
+        double t2 = timeRandomInput(arg2 ,N, T);
 
-        StdOut.printf("For %d random Doubles\n  %s is ", N, arg1);
-        StdOut.printf("%.1f times faster than %s\n", t2/t1,arg2);
+        StdOut.printf("For %d random Doubles and iterator %d times \n",N,T);
+        StdOut.printf("%s consume: %.1f\n",arg1,t1);
+        StdOut.printf("%s consume: %.1f",arg2,t2);
+
+     //   StdOut.printf("For %d random Doubles\n  %s is ", N, arg1);
+     //   StdOut.printf("%.1f times faster than %s\n", t2/t1,arg2);
     }
 }
